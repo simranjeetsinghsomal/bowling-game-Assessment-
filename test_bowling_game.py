@@ -5,6 +5,7 @@ class BowlingGameTests(unittest.TestCase):
     def setUp(self):
         self.g = BowlingGame()
 
+
     def roll_many(self, n, pins):
         for _ in range(n):
             self.g.roll(pins)
@@ -18,10 +19,10 @@ class BowlingGameTests(unittest.TestCase):
         self.assertEqual(self.g.score(), 20)
 
     def test_single_spare_followed_by_three(self):
-        self.g.roll(5); self.g.roll(5)  # spare
-        self.g.roll(3)
-        self.roll_many(17, 0)
-        self.assertEqual(self.g.score(), 16)
+        self.g.roll(5); self.g.roll(5)  # spare (5+5 =10 , 2  Roll  )
+        self.g.roll(3)   #10+3 =13
+        self.roll_many(17, 0) 
+        self.assertEqual(self.g.score(), 16)   
 
     def test_single_strike_followed_by_three_and_four(self):
         self.g.roll(10)  # strike
